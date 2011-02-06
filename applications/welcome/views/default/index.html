@@ -1,0 +1,34 @@
+{{left_sidebar_enabled=right_sidebar_enabled=False}}
+{{response.files.append(URL('static','js/jquery.autocomplete.js'))}}
+{{response.files.append(URL('static','js/lib/jquery.ajaxQueue.js'))}}
+{{response.files.append(URL('static','js/lib/jquery.bgiframe.min.js'))}}
+{{response.files.append(URL('static','js/lib/thickbox.css'))}}
+{{response.files.append(URL('static','js/thickbox-compressed.js'))}}
+{{response.files.append(URL('static','js/autocomplete.js'))}}
+
+
+
+{{extend 'layout.html'}}
+
+{{if 'message' in globals():}}
+  <div id="searchformcontainer">
+    {{=searchform}}
+    <div id="searchresults"></div>
+  </div>
+  
+  
+  
+  <div id="createformcontainer">
+    {{=createform}}
+  </div>
+
+
+
+
+
+{{else:}}
+  {{=BEAUTIFY(response._vars)}}
+{{pass}}
+
+{{block left_sidebar}}New Left Sidebar Content{{end}}
+{{block right_sidebar}}New Right Sidebar Content{{end}}

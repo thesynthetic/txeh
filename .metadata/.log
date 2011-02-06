@@ -1,0 +1,52 @@
+!SESSION 2011-02-06 02:00:50.997 -----------------------------------------------
+eclipse.buildId=unknown
+java.version=1.6.0_20
+java.vendor=Sun Microsystems Inc.
+BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=en_US
+Command-line arguments:  -os win32 -ws win32 -arch x86
+
+!ENTRY com.aptana.scripting 1 0 2011-02-06 02:01:03.181
+!MESSAGE C:\Users\Ryeguy\AppData\Local\Aptana Studio 3\configuration\org.eclipse.osgi\bundles\319\1\.cp\bundles\bundle-development.ruble\commands\install_bundle.rb is newer than cache file, invalidating cache
+
+!ENTRY com.aptana.scripting 4 0 2011-02-06 02:01:08.723
+!MESSAGE Cannot create property=children for JavaBean=bundle "html" {
+  bundle_precedence: APPLICATION
+  path: C:\Users\Ryeguy\AppData\Local\Aptana Studio 3\configuration\org.eclipse.osgi\bundles\319\1\.cp\bundles\html.ruble\bundle.rb
+  author: Christopher Williams
+  copyright: null
+  description: null
+  repository: null
+}
+; org.yaml.snakeyaml.nodes.MappingNode cannot be cast to org.yaml.snakeyaml.nodes.ScalarNode
+!STACK 0
+org.yaml.snakeyaml.error.YAMLException: Cannot create property=children for JavaBean=bundle "html" {
+  bundle_precedence: APPLICATION
+  path: C:\Users\Ryeguy\AppData\Local\Aptana Studio 3\configuration\org.eclipse.osgi\bundles\319\1\.cp\bundles\html.ruble\bundle.rb
+  author: Christopher Williams
+  copyright: null
+  description: null
+  repository: null
+}
+; org.yaml.snakeyaml.nodes.MappingNode cannot be cast to org.yaml.snakeyaml.nodes.ScalarNode
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.constructJavaBean2ndStep(Constructor.java:291)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.construct2ndStep(Constructor.java:191)
+	at com.aptana.scripting.model.BundleCacher$BundleElementsContructor$ConstructBundleElement.construct(BundleCacher.java:593)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:184)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructDocument(BaseConstructor.java:143)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.getSingleData(BaseConstructor.java:129)
+	at org.yaml.snakeyaml.Yaml.load(Yaml.java:264)
+	at com.aptana.scripting.model.BundleCacher.load(BundleCacher.java:201)
+	at com.aptana.scripting.model.BundleManager$BundleLoadJob.run(BundleManager.java:99)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:54)
+Caused by: java.lang.ClassCastException: org.yaml.snakeyaml.nodes.MappingNode cannot be cast to org.yaml.snakeyaml.nodes.ScalarNode
+	at com.aptana.scripting.model.BundleCacher$BundleElementsContructor$ConstructSmartTypingPairsElement.construct(BundleCacher.java:737)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:184)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructSequenceStep2(BaseConstructor.java:278)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructSequence(BaseConstructor.java:249)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructSequence.construct(Constructor.java:503)
+	at org.yaml.snakeyaml.constructor.BaseConstructor.constructObject(BaseConstructor.java:184)
+	at org.yaml.snakeyaml.constructor.Constructor$ConstructMapping.constructJavaBean2ndStep(Constructor.java:288)
+	... 9 more
+
+!ENTRY com.aptana.scripting 1 0 2011-02-06 02:01:08.723
+!MESSAGE Due to error loading YAML, bundle at C:\Users\Ryeguy\AppData\Local\Aptana Studio 3\configuration\org.eclipse.osgi\bundles\319\1\.cp\bundles\html.ruble will not be loaded from cache
