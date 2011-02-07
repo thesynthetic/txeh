@@ -13,7 +13,7 @@ div#container {
   display: block;
   position:absolute;
   height:auto;
-  min-height:700px;
+  min-height:800px;
   bottom:0;
   top:0;
   left:0;
@@ -27,7 +27,7 @@ div#container {
 
 div#wrapper {
   padding:1em 1em 5em; /* bottom padding for footer */
-  width: 800px;
+  width: 1000px;
   margin-left:auto;
   margin-right: auto;
 }
@@ -51,7 +51,7 @@ div.flash{
   text-align:center;
   padding-top: 10px;
   font-weight: bold;
-  opacity: 0.80;
+  opacity: 1;
   z-index: 50; /* Top */
 }
 
@@ -112,29 +112,31 @@ h6 {font-size: 0.8em;}
   position:absolute;
   background: transparent;
   height:38px;
-  width:100%;
+  width:800px;
   z-index:5;
   background-repeat:no-repeat;
   background-position: 257px 7px;
   padding-left:5px;
   padding-right:0px;
   top:0px;
-  left:0px;
+  left: 0px;
   
 }
 
 #searchtextgrey{
+
   color: #e5e5e5;
   position:absolute;
   background: white;
   height:38px;
-  width:100%;
+  width:800px;
   z-index: 4;
   overflow:hidden;
   top: 0px;
   left: 0px;
   padding-left:5px;
   padding-right:0px;
+  
 }
 
 #searchresults {
@@ -148,10 +150,12 @@ h6 {font-size: 0.8em;}
   font-size: 24px;
   border: 1px solid gray;
   display: none;
+  padding-left:5px;
 }
 
 
 #resultstable {
+
   width:100%;
     cursor: pointer;
 }
@@ -164,6 +168,8 @@ h6 {font-size: 0.8em;}
 
 #searchform {
   width:100%;
+  margin-left:auto;
+  margin-right:auto;
   position:relative;
   padding:0;
 }
@@ -181,10 +187,111 @@ h6 {font-size: 0.8em;}
   margin-top:20px;
 }
 
+.createhextinput {
+   margin-bottom: 5px;
+}
+
+.forminputheader {
+
+}
+
 #hextme_logo {
   
   margin-left:auto;
   margin-right:auto;
+}
+
+#lowercontainer {
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+    -khtml-border-radius: 5px;
+    border-radius: 5px;
+  /*background-color: #E1E1E1;*/
+  height: 402px;
+  color: #A5A5A5;
+  font-size:18px;
+}
+
+#info1 {
+margin-top: 2px;
+margin-bottom: 2px;
+margin-left: 2px;
+margin-right: 2px;
+ width:250px;
+ height:100%;
+ float: left;
+ padding-top: 10px;
+ padding-bottom: 5px;
+ padding-left: 10px;
+ padding-right: 10px;
+ text-align: justify;
+ background-color:#333333;
+}
+#info2 {
+margin-top: 2px;
+margin-bottom: 2px;
+margin-left: 2px;
+margin-right: 2px;
+ width:250px;
+ height:100%;
+ float: left;
+ padding-top: 10px;
+ padding-bottom: 5px;
+ padding-left: 10px;
+ padding-right: 10px;
+  text-align: justify;
+  background-color: #1F1F1F;
+}
+
+#createcontainer {
+margin-top: 2px;
+margin-bottom: 2px;
+margin-left: 2px;
+margin-right: 2px;
+ width: 390px;
+ height:100%;
+ float: left;
+ padding-top: 10px;
+ padding-bottom: 5px;
+ padding-left: 10px;
+ padding-right: 10px;
+ background-color: #000000;
+}
+
+.h1infoyellow {
+color: #ffd503;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.h1infoblue {
+color: #27c4f3;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+.h1infopink {
+color: #ee4699;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+
+
+.infogreen {
+color: #d7df21;
+}
+
+.infopink {
+color: #ee4699;
+}
+
+.infoblue {
+color: #27c4f3;
+}
+
+.infoyellow {
+color: #ffd503;
 }
 
 .auth_navbar {
@@ -193,8 +300,6 @@ h6 {font-size: 0.8em;}
    padding: 3px 10px 3px 10px; 
 }
 
-
-/*_____________*/
 
 
 

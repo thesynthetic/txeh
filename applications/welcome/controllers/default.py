@@ -27,14 +27,17 @@ def index():
                     INPUT(_type='submit',_id='searchformsubmit'),
                     _id='searchform')
     
-    createform = FORM('hext:',
-                        INPUT(_name='hext',
+    createform = FORM(DIV("Hext Text",_class="inputheader"),
+                      INPUT(_name='hext',
                               _autocomplete='off',
-                              requires=IS_NOT_EMPTY()),
-                        INPUT(_name='url',
+                              requires=IS_NOT_EMPTY(),
+                              _class="createhextinput"),
+                      DIV("Web Address",_class="inputheader"),
+                      INPUT(_name='url',
                               _autocomplete='off',
-                              requires=IS_NOT_EMPTY()),
-                        INPUT(_type='submit'))
+                              requires=IS_NOT_EMPTY(),
+                              _class="createhextinput"),
+                      INPUT(_type='submit'))
 
     if searchform.accepts(request.vars, session, formname='searchform'):
         search = searchform.vars.searchtext.lower().strip()
