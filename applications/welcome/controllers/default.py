@@ -10,6 +10,7 @@
 #########################################################################
 import datetime
 import logging
+import re
 helper = local_import('Helper')
 
 
@@ -38,52 +39,70 @@ def index():
                               requires=IS_NOT_EMPTY(),
                               _class="createhextinput"),
                       INPUT(_type='submit'))
+    
+    
+    
+    if session.justcreated == True:
+        session.justcreated = False
 
-    if searchform.accepts(request.vars, session, formname='searchform'):
-        search = searchform.vars.searchtext.lower().strip()
-        results = db(db.hexts.hextstring==search).select()
+        createhext = session.createhext
+        createurl = session.createurl
+
+        hext = Hext(createhext)
+        
+        #handle created
+        if auth.user is None:
+            tempuser = None
+        else:
+            tempuser = auth.user.id
+        #Test existance before adding (display error if duplicate)
+        results = db(db.hexts.hextstring==createhext).select()
         found = False
         for result in results:
-            db.tracker.insert(hext=result.id,
-                              timestamp=datetime.datetime.now())
             found = True
-            db(db.hexts.id == result.id).update(totalHits=result.totalHits + 1)
-            redirect(result.url)
         if not found:
-            response.flash = "Sorry, that hext link doesn't exist. Please try again."
-    elif searchform.errors:
-        response.flash = 'Sorry, please see errors below.'
+            db.hexts.insert(hextstring=createhext,
+                            url=createurl,
+                            createdBy=tempuser,
+                            dateCreated=datetime.datetime.now(),
+                            totalHits=0)
+            session.flashable = True
+            session.flashy = '## ' + createhext + ' ## successfuly created'
+            redirect(URL())
+        else:
+            session.flashable = True
+            session.flashy = '## Sorry, hext link already exists with that name ##'
+            redirect(URL())
+        
     else:
-        if createform.accepts(request.vars, session, formname='createform'):
-            if auth.user is None:
-                tempuser = None
-            else:
-                tempuser = auth.user.id
-                
-            session.hext = createform.vars.hext.lower().strip()
-            session.solicitcreate = True
-            session.url = createform.vars.url
-
-            #Test existance before adding (display error if duplicate)
-            results = db(db.hexts.hextstring==createform.vars.hext).select()
+        if searchform.accepts(request.vars, session, formname='searchform'):
+            session.search = searchform.vars.searchtext.lower().strip()
+            results = db(db.hexts.hextstring==session.search).select()
             found = False
             for result in results:
+                db.tracker.insert(hext=result.id,
+                                  timestamp=datetime.datetime.now())
                 found = True
-
+                db(db.hexts.id == result.id).update(totalHits=result.totalHits + 1)
+                redirect(result.url)
             if not found:
-                db.hexts.insert(hextstring=session.hext,
-                                url=createform.vars.url,
-                                createdBy=tempuser,
-                                dateCreated=datetime.datetime.now(),
-                                totalHits=0)
-                response.flash = '##' + session.hext + '## successfuly created'
-            else:
-                response.flash = '## Sorry, hext link already exists with that name ##'
-            
-        elif createform.errors:
-            response.flash = '## Sorry, please see errors below. ##'
+                response.flash = "Sorry, that hext link doesn't exist. Please try again."
         else:
-            response.flash = '## Welcome to hext.me - links for the real world ##'
+            if createform.accepts(request.vars, session, formname='createform'):
+                session.justcreated = True
+                session.createhext = createform.vars.hext.lower().strip()
+                session.createurl = createform.vars.url
+                redirect(URL())
+            elif createform.errors:
+                session.flashable = True
+                session.flashy = '## Sorry, please see errors below. ##'
+                redirect(URL())
+            else:
+                response.flash = '## Welcome to hext.me - links for the real world ##'
+
+    if session.flashable == True:
+        session.flashable = False
+        response.flash = session.flashy
 
     return dict(message=T(''),
                 searchform=searchform,
@@ -156,4 +175,13 @@ def call():
     session.forget()
     return service()
 
+class Hext:
+    def __init__(self,string):
+        self.hext = string
+        self.error = ''
+    
+    def validate(self):
+        pass
 
+    def isValid(self):
+       pass 
