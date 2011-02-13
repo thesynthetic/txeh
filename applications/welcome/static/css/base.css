@@ -217,15 +217,15 @@ margin-top: 2px;
 margin-bottom: 2px;
 margin-left: 2px;
 margin-right: 2px;
- width:250px;
- height:100%;
- float: left;
- padding-top: 10px;
- padding-bottom: 5px;
- padding-left: 10px;
- padding-right: 10px;
- text-align: justify;
- background-color:#333333;
+   width:250px;
+   height:100%;
+   float: left;
+   padding-top: 10px;
+   padding-bottom: 5px;
+   padding-left: 10px;
+   padding-right: 10px;
+   text-align: justify;
+   background-color:#333333;
 }
 #info2 {
 margin-top: 2px;
@@ -282,6 +282,8 @@ margin-bottom:10px;
 color: #d7df21;
 }
 
+
+
 .infopink {
 color: #ee4699;
 }
@@ -293,6 +295,31 @@ color: #27c4f3;
 .infoyellow {
 color: #ffd503;
 }
+
+/*  Dashboard */
+
+#dashboardmain{
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 2px;
+  margin-right: 2px;
+  width:700px;
+  height:400px;
+  float: left;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: justify;
+  background-color:#333333;
+}
+
+
+
+
+
+
+
 
 .auth_navbar {
    top: 0px;

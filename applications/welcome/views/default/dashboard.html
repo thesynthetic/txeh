@@ -4,31 +4,35 @@
 {{if 'message' in globals():}}
 
 <h1>{{=T('#hext.me')}}</h1>
-<table>
 
 
 
 
-<table border="1">
 
-<tr>
-<td>hext</td>
-<td>All Time Hits</td>
-</tr>
-
-{{i = 0}}
-{{for hext in hexts: }}
-<tr>
-<td>{{=hext}}</td>
-<td>{{=hits[i]}}</td>
-</tr>
-{{i = i + 1}}
-{{pass}}
-
-
-</table>
-
-
+<div id="dashboardmain">
+  
+  <table border="1">
+  
+  <tr>
+  <td>hext</td>
+  <td>All Time Hits</td>
+  </tr>
+  
+  {{i = 0}}
+  {{for hext in hexts: }}
+  <tr>
+  <td>{{=hext}}</td>
+  <td>{{=hits[i]}}</td>
+  </tr>
+  {{i = i + 1}}
+  {{pass}}
+  
+  
+  </table>
+  
+  
+<img src="http://chart.apis.google.com/chart?chf=bg,s,67676700&chxl=0:|11%2F1|11%2F2|11%2F3|11%2F4|11%2F5|11%2F6|11%2F7|11%2F8|&chxr=0,0,46&chxs=0,EFEFEF,12.5,0,l,F1E8E8|1,E8F4F7,11.5,0,lt,E8EEF7&chxt=x,y&chs=300x245&cht=lc&chco=FFCC33&chd=s:olacfaZc&chg=19,14,0,0&chls=4,4,0&chm=o,FFD503,0,-1,8,1&chtt=Past+7+Days&chts=CCC8C8,15.5" width="300" height="245" alt="Past 7 Days" />
+</div>
 {{else:}}
 {{=BEAUTIFY(response._vars)}}
 {{pass}}
